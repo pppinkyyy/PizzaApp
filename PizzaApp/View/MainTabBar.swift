@@ -11,6 +11,7 @@ struct MainTabBar: View {
     var body: some View {
         
         TabView {
+    
             ProfileView()
             .tabItem {
                 VStack {
@@ -19,7 +20,9 @@ struct MainTabBar: View {
                 }
             }
             
-            MenuView()
+            NavigationView {
+                MenuView()
+            }
                 .tabItem {
                     VStack {
                         Image(systemName: "menucard")
