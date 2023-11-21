@@ -30,14 +30,14 @@ struct MainTabBar: View {
                     }
                 }
             
-            CartView()
+            CartView(viewModel: CartViewModel())
             .tabItem {
                 VStack {
                     Image(systemName: "basket")
                     Text("Мій кошик")
                 }
             }
-        }
+        }.tint(.orange)
         
        
     }

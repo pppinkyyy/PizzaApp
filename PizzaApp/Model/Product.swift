@@ -12,7 +12,7 @@ struct Product {
     var title: String
     var imageURL: String
     var price: Int
-    var descript: String
+    var description: String
 //    var ordersCount: Int
 //    var isRecommend: Bool
 }

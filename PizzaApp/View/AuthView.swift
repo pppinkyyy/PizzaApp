@@ -27,7 +27,7 @@ struct AuthView: View {
                 .font(.title2 .bold())
                 .background(Color("blackAlpha"))
                 .cornerRadius(16)
-                .foregroundColor(.yellow)
+                .foregroundColor(.orange)
                 .padding()
             
             VStack {
@@ -72,7 +72,7 @@ struct AuthView: View {
                     Text(isAuth ? "Увійти" : "Зареєструватися")
                         .padding()
                         .frame(maxWidth: .infinity)
-                        .background(Color.yellow)
+                        .background(.orange)
                         .cornerRadius(12)
                         .padding(8)
                         .padding(.horizontal, 12)
@@ -86,12 +86,12 @@ struct AuthView: View {
                     Text(isAuth ? "Я ще не зареєстрований" : "В мене вже є аккаунт")
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity)
-                        .background(Color .clear)
+                        .background(.clear)
                         .cornerRadius(12)
                         .padding(8)
                         .padding(.horizontal, 12)
                         .font(.title3.bold())
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.orange)
                 }
 
             }

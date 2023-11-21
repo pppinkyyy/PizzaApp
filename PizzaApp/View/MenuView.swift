@@ -20,15 +20,12 @@ struct MenuView: View {
                         ForEach(MenuViewModel.share.popularProducts, id: \.id) { item in
                             
                             NavigationLink {
-                                ProdutDetailsView(product: item)
+                                let viewModel = ProductDetailsViewModel(product: item)
+                                ProductDetailsView(viewModel: viewModel)
                             } label: {
                                 ProductCell(product: item)
                                     .foregroundColor(.white)
                             }
-
-                            
-                            
-                        
                         } .padding(12)
                     })
                 }
@@ -40,17 +37,21 @@ struct MenuView: View {
                         ForEach(MenuViewModel.share.pizzas, id: \.id) { item in
                             
                             NavigationLink {
-                                ProdutDetailsView(product: item)
+                                let viewModel = ProductDetailsViewModel(product: item)
+                                ProductDetailsView(viewModel: viewModel)
                             } label: {
                                 ProductCell(product: item)
                                     .foregroundColor(.white)
                             }
-
+                            
                         } .padding(12)
                     })
                 }
             }
         } .navigationTitle("Меню")
+        
+//        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
+//            .background(.black)
         
     }
 }
