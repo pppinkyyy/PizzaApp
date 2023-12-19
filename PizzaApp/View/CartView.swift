@@ -9,13 +9,62 @@ import SwiftUI
 
 struct CartView: View {
     
-    var viewModel: CartViewModel
+    @StateObject var viewModel: CartViewModel
     
     var body: some View {
-        Text("Cart")
+        
+        VStack {
+            
+            List(viewModel.positions) { position in
+                PositionCell(position: position)
+//                    .background(Color.blue)
+                    .swipeActions {
+                        Button ("Видалити") {
+                            viewModel.positions.removeAll { pos in
+                                pos.id == position.id
+                            }
+                        }
+                        .tint(.red)
+                    }
+            }
+            .navigationTitle("Мій кошик")
+            .listStyle(.plain)
+//            .background(Color.black)
+//            TODO: сделать так чтоб список продуктов в корзине отображался черным цветом
+            
+            HStack {
+                Text("Всього:")
+                Spacer()
+                Text("\(viewModel.cost)₴")
+            }
+            .padding(.horizontal)
+            .font(.custom("AvenirNext-bold", size: 19))
+            .foregroundColor(.white)
+            
+            HStack(spacing: 24) {
+                Button("Скасувати") {
+                    
+                } 
+                .padding()
+                .foregroundColor(.white)
+                    
+                
+                Button("Замовити") {
+                    
+                }   .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.orange)
+                    .foregroundColor(.black)
+                    .cornerRadius(18)
+                    
+            }
+            .padding()
+            
+        }
+        .background(.black)
     }
 }
 
 #Preview {
-    CartView(viewModel: CartViewModel())
+    CartView(viewModel: CartViewModel.shared)
 }

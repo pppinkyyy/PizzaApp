@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct PositionCell: View {
+    
+    var position: Position
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack {
+            Text("\(position.product.title)")
+            Spacer()
+            Text("\(position.count) шт.")
+            Text("\(position.cost)₴")
+                .font(.custom("AvenirNext-bold", size: 19))
+                .frame(width: 65, alignment: .trailing)
+        } .font(.custom("AvenirNext-regular", size: 19))
+            .padding(.horizontal)
     }
 }
 
 #Preview {
-    PositionCellView()
+    PositionCell(position: Position(id: UUID().uuidString, product: Product(id: UUID().uuidString, title: "Неаполітанська піца",
+                                                                            imageURL: "pizzaNeopolitano",
+                                                                            price: 280,
+                                                                            description: "Неаполітанська піца — з помідорами, моцарелою, пармезаном, анчоусами, оливковою олією, орегано та базиліком."),
+                                    count: 3))
 }

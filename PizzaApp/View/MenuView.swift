@@ -48,7 +48,9 @@ struct MenuView: View {
                     })
                 }
             }
-        } .navigationTitle("Меню")
+        } 
+        .navigationTitle("Меню")
+        .background(.black)
         
 //        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
 //            .background(.black)
