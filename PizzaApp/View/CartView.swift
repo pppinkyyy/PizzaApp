@@ -15,22 +15,23 @@ struct CartView: View {
         
         VStack {
             
+            Text("Ваше замовлення:")
+                .foregroundStyle(.white)
+                .font(.custom("AvenirNext-bold", size: 19))
+            
             List(viewModel.positions) { position in
                 PositionCell(position: position)
-//                    .background(Color.blue)
                     .swipeActions {
                         Button ("Видалити") {
                             viewModel.positions.removeAll { pos in
                                 pos.id == position.id
                             }
-                        }
-                        .tint(.red)
+                        }.tint(.red)
                     }
             }
             .navigationTitle("Мій кошик")
             .listStyle(.plain)
-//            .background(Color.black)
-//            TODO: сделать так чтоб список продуктов в корзине отображался черным цветом
+            
             
             HStack {
                 Text("Всього:")
@@ -44,19 +45,18 @@ struct CartView: View {
             HStack(spacing: 24) {
                 Button("Скасувати") {
                     
-                } 
+                }
                 .padding()
                 .foregroundColor(.white)
-                    
                 
                 Button("Замовити") {
                     
                 }   .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.orange)
+                    .background(.orange)
                     .foregroundColor(.black)
                     .cornerRadius(18)
-                    
+                
             }
             .padding()
             

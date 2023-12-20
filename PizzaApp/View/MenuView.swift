@@ -51,9 +51,11 @@ struct MenuView: View {
         } 
         .navigationTitle("Меню")
         .background(.black)
+        .foregroundStyle(.white)
         
 //        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
 //            .background(.black)
+//        .scrollContentBackground(.hidden)
         
     }
 }
