@@ -14,8 +14,9 @@ struct AuthView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
-    
     @State private var isTabViewShow = false
+    @State private var isShowAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         
@@ -60,13 +61,45 @@ struct AuthView: View {
                 Button {
                     if isAuth {
                         print("Увійти")
-                        isTabViewShow.toggle() 
+                        
+                        AuthService.shared.signIn(email: self.email, password: self.password) { result in
+                            switch result {
+                                
+                            case .success(_):
+                                isTabViewShow.toggle()
+                            case .failure(let error):
+                                alertMessage = "Помилка авторизації: \(error.localizedDescription)"
+                                isShowAlert.toggle()
+                            }
+                        }
+                        
                     } else {
                         print("Зареєструватися")
-                        self.email = ""
-                        self.password = ""
-                        self.confirmPassword = ""
-                        self.isAuth.toggle()
+                        
+                        guard password == confirmPassword else {
+                            self.alertMessage = "Паролі не співпадають"
+                            self.isShowAlert.toggle()
+                            return
+                        }
+                        
+                        AuthService.shared.signUp(email: self.email,
+                                                  password: self.password) { result in
+                            switch result {
+                            case.success(let user):
+                                alertMessage = "Ви зареєструвалися з email \(user.email!)"
+                                self.isShowAlert.toggle()
+                                self.email = ""
+                                self.password = ""
+                                self.confirmPassword = ""
+                                self.isAuth.toggle()
+                            
+                            case.failure(let error):
+                                alertMessage = "Помилка реєстрації \(error.localizedDescription)"
+                                self.isShowAlert.toggle()
+                            }
+                        }
+                        
+                      
                     }
                 } label: {
                     Text(isAuth ? "Увійти" : "Зареєструватися")
@@ -100,14 +133,20 @@ struct AuthView: View {
             .cornerRadius(20)
             .padding(isAuth ? 16 : 8)
             .padding(.vertical)
-           
+            .alert(alertMessage,
+                   isPresented: $isShowAlert, actions: {
+                Button("Oк") { }
+            })
             
              
         } .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Image("pizzaBG") .blur(radius: isAuth ? 0 : 5))
             .animation(.easeInOut(duration: 0.6), value: isAuth)
             .fullScreenCover(isPresented: $isTabViewShow, content: {
-                MainTabBar()
+                
+                let mainTabBarViewModel = MainTabBarViewModel(user: AuthService.shared.currentUser!)
+                
+                MainTabBar(viewModel: mainTabBarViewModel)
             })
         
     }
