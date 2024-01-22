@@ -10,6 +10,9 @@
 		847A44C02B55732E0076C939 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44BF2B55732E0076C939 /* AuthService.swift */; };
 		847A44C72B557B720076C939 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 847A44C62B557B720076C939 /* FirebaseAuth */; };
 		847A44C92B5828C70076C939 /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44C82B5828C70076C939 /* MainTabBarViewModel.swift */; };
+		847A44CB2B5EA97D0076C939 /* PizzaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44CA2B5EA97D0076C939 /* PizzaUser.swift */; };
+		847A44CD2B5EB0010076C939 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44CC2B5EB0010076C939 /* DatabaseService.swift */; };
+		847A44CF2B5EB0360076C939 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 847A44CE2B5EB0360076C939 /* FirebaseFirestore */; };
 		8485E3162B345A9900A232B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8485E3152B345A9900A232B4 /* GoogleService-Info.plist */; };
 		84CDC1942B0569650099B120 /* PizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC1932B0569650099B120 /* PizzaApp.swift */; };
 		84CDC1962B0569650099B120 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC1952B0569650099B120 /* AuthView.swift */; };
@@ -37,6 +40,8 @@
 /* Begin PBXFileReference section */
 		847A44BF2B55732E0076C939 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		847A44C82B5828C70076C939 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		847A44CA2B5EA97D0076C939 /* PizzaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaUser.swift; sourceTree = "<group>"; };
+		847A44CC2B5EB0010076C939 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8485E3152B345A9900A232B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CDC1902B0569650099B120 /* PizzaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CDC1932B0569650099B120 /* PizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaApp.swift; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 				84DEF4312B55677400B80EE3 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				84DEF4372B55677400B80EE3 /* FirebaseAppCheck in Frameworks */,
 				84DEF4352B55677400B80EE3 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				847A44CF2B5EB0360076C939 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				847A44BF2B55732E0076C939 /* AuthService.swift */,
+				847A44CC2B5EB0010076C939 /* DatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 			children = (
 				84CDC1AA2B078AC00099B120 /* Product.swift */,
 				84CDC1B72B0D05800099B120 /* Position.swift */,
+				847A44CA2B5EA97D0076C939 /* PizzaUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +203,7 @@
 				84DEF4342B55677400B80EE3 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				84DEF4362B55677400B80EE3 /* FirebaseAppCheck */,
 				847A44C62B557B720076C939 /* FirebaseAuth */,
+				847A44CE2B5EB0360076C939 /* FirebaseFirestore */,
 			);
 			productName = PizzaApp;
 			productReference = 84CDC1902B0569650099B120 /* PizzaApp.app */;
@@ -254,11 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847A44CD2B5EB0010076C939 /* DatabaseService.swift in Sources */,
 				84CDC1A82B064D050099B120 /* CartView.swift in Sources */,
 				847A44C92B5828C70076C939 /* MainTabBarViewModel.swift in Sources */,
 				84CDC1B22B07A0230099B120 /* MenuViewModel.swift in Sources */,
 				84CDC1B82B0D05800099B120 /* Position.swift in Sources */,
 				84CDC1BA2B0D064A0099B120 /* CartViewModel.swift in Sources */,
+				847A44CB2B5EA97D0076C939 /* PizzaUser.swift in Sources */,
 				84CDC1A22B0643E40099B120 /* MainTabBar.swift in Sources */,
 				84CDC1A42B064CD20099B120 /* MenuView.swift in Sources */,
 				84CDC1A62B064CF30099B120 /* ProfileView.swift in Sources */,
@@ -492,6 +503,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 84DEF42D2B55677400B80EE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		847A44CE2B5EB0360076C939 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DEF42D2B55677400B80EE3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 		84DEF42E2B55677400B80EE3 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
