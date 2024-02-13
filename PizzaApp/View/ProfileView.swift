@@ -12,6 +12,8 @@ struct ProfileView: View {
     @State var isAvaAlertPresented = false
     @State var isQuitAlertPresented = false
     @State var isAuthViewPresented = false
+
+    @ObservedObject var viewModel: ProfileViewModel
     
     var body: some View {
         
@@ -41,18 +43,24 @@ struct ProfileView: View {
                 
                 
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Мирослав Филиппецкий")
+                    TextField("Ваше ім`я та прізвище", text: $viewModel.profile.name)
                         .font(.custom("AvenirNext-bold", size: 18))
-                    
-                    Text("+38(0 66 673 53 90)")
+                   
+                    HStack {
+                        Text("+380")
+                        TextField("Ваш номер телефону", value: $viewModel.profile.phoneNumber, format: .number)
+                    }
+
                 }
             }
             
             VStack(alignment:.leading, spacing: 8) {
                 Text("Адреса доставки:")
                     .bold()
-                Text("Україна, м. Київ, вул. Юнацька 9, кв .7")
-            } 
+                
+                TextField("Ваша адреса", text: $viewModel.profile.address)
+            }
+            .padding(.horizontal)
             
             List {
                 Text("Замовлення")
@@ -84,9 +92,18 @@ struct ProfileView: View {
         }  .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.black)
             .foregroundStyle(.orange)
+            .onSubmit {
+                viewModel.setProfile()
+            }
+            .onAppear{
+                self.viewModel.getProfile()
+            }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: ProfileViewModel(profile: PizzaUser(id: "",
+                                                               name: "Влад Степаненко",
+                                                               phoneNumber: 666888999,
+                                                               address: "Київ")))
 }

@@ -14,7 +14,7 @@ struct MenuView: View {
         
         ScrollView(.vertical, showsIndicators: false) {
             
-            Section("Popular") {
+            Section("Популярні піцци") {
                 ScrollView(.horizontal, showsIndicators: false){
                     LazyHGrid(rows: layout, content: {
                         ForEach(MenuViewModel.share.popularProducts, id: \.id) { item in
@@ -31,7 +31,7 @@ struct MenuView: View {
                 }
             }
             
-            Section("Pizza") {
+            Section("Всі піцци") {
                 ScrollView(.vertical, showsIndicators: false){
                     LazyVGrid(columns: layout, content: {
                         ForEach(MenuViewModel.share.pizzas, id: \.id) { item in

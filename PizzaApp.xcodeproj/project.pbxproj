@@ -13,7 +13,9 @@
 		847A44CB2B5EA97D0076C939 /* PizzaUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44CA2B5EA97D0076C939 /* PizzaUser.swift */; };
 		847A44CD2B5EB0010076C939 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44CC2B5EB0010076C939 /* DatabaseService.swift */; };
 		847A44CF2B5EB0360076C939 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 847A44CE2B5EB0360076C939 /* FirebaseFirestore */; };
-		8485E3162B345A9900A232B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8485E3152B345A9900A232B4 /* GoogleService-Info.plist */; };
+		847A44D12B6161660076C939 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A44D02B6161660076C939 /* ProfileViewModel.swift */; };
+		847A44F72B7A86210076C939 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 847A44F62B7A86210076C939 /* GoogleService-Info.plist */; };
+		8485E3162B345A9900A232B4 /* GoogleService-Info1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8485E3152B345A9900A232B4 /* GoogleService-Info1.plist */; };
 		84CDC1942B0569650099B120 /* PizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC1932B0569650099B120 /* PizzaApp.swift */; };
 		84CDC1962B0569650099B120 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDC1952B0569650099B120 /* AuthView.swift */; };
 		84CDC1982B0569670099B120 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CDC1972B0569670099B120 /* Assets.xcassets */; };
@@ -42,7 +44,9 @@
 		847A44C82B5828C70076C939 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		847A44CA2B5EA97D0076C939 /* PizzaUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaUser.swift; sourceTree = "<group>"; };
 		847A44CC2B5EB0010076C939 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
-		8485E3152B345A9900A232B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		847A44D02B6161660076C939 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		847A44F62B7A86210076C939 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8485E3152B345A9900A232B4 /* GoogleService-Info1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info1.plist"; sourceTree = "<group>"; };
 		84CDC1902B0569650099B120 /* PizzaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CDC1932B0569650099B120 /* PizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaApp.swift; sourceTree = "<group>"; };
 		84CDC1952B0569650099B120 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -122,7 +126,8 @@
 				84CDC1A92B078A5F0099B120 /* View */,
 				84CDC1B02B079FCF0099B120 /* ViewModel */,
 				84CDC1972B0569670099B120 /* Assets.xcassets */,
-				8485E3152B345A9900A232B4 /* GoogleService-Info.plist */,
+				847A44F62B7A86210076C939 /* GoogleService-Info.plist */,
+				8485E3152B345A9900A232B4 /* GoogleService-Info1.plist */,
 				84CDC1992B0569670099B120 /* Preview Content */,
 			);
 			path = PizzaApp;
@@ -176,6 +181,7 @@
 				847A44C82B5828C70076C939 /* MainTabBarViewModel.swift */,
 				84CDC1B52B0CC20B0099B120 /* ProductDetailsViewModel.swift */,
 				84CDC1B92B0D064A0099B120 /* CartViewModel.swift */,
+				847A44D02B6161660076C939 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -251,8 +257,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CDC19B2B0569670099B120 /* Preview Assets.xcassets in Resources */,
+				847A44F72B7A86210076C939 /* GoogleService-Info.plist in Resources */,
 				84CDC1982B0569670099B120 /* Assets.xcassets in Resources */,
-				8485E3162B345A9900A232B4 /* GoogleService-Info.plist in Resources */,
+				8485E3162B345A9900A232B4 /* GoogleService-Info1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847A44CD2B5EB0010076C939 /* DatabaseService.swift in Sources */,
+				847A44D12B6161660076C939 /* ProfileViewModel.swift in Sources */,
 				84CDC1A82B064D050099B120 /* CartView.swift in Sources */,
 				847A44C92B5828C70076C939 /* MainTabBarViewModel.swift in Sources */,
 				84CDC1B22B07A0230099B120 /* MenuViewModel.swift in Sources */,
@@ -411,6 +419,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaApp/Preview Content\"";
@@ -420,6 +429,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -440,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PizzaApp/Preview Content\"";
@@ -449,6 +460,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

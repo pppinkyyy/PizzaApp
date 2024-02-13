@@ -15,7 +15,10 @@ struct MainTabBar: View {
         
         TabView {
     
-            ProfileView()
+            ProfileView(viewModel: ProfileViewModel(profile: PizzaUser(id: "",
+                                                                         name: "",
+                                                                         phoneNumber: 000000000,
+                                                                         address: "")))
             .tabItem {
                 VStack {
                     Image(systemName: "person.crop.circle.fill")
