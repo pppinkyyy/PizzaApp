@@ -42,6 +42,7 @@ struct CartView: View {
             .font(.custom("AvenirNext-bold", size: 19))
             .foregroundColor(.white)
             
+            
             HStack(spacing: 24) {
                 Button("Скасувати") {
                     
@@ -51,12 +52,22 @@ struct CartView: View {
                 
                 Button("Замовити") {
                     
+                    var order = Order(userId: AuthService.shared.currentUser!.uid, date: Date(), status: OrderStatus.new.rawValue)
+                    order.positions = self.viewModel.positions
+                    
+                    DatabaseService.shared.setOrders(order: order) { result in
+                        switch result {
+                        case .success(let order):
+                            print(order.cost)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
                 }   .padding()
                     .frame(maxWidth: .infinity)
                     .background(.orange)
                     .foregroundColor(.black)
                     .cornerRadius(18)
-                
             }
             .padding()
             

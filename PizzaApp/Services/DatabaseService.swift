@@ -17,7 +17,41 @@ class DatabaseService {
         return db.collection("users")
     }
     
+    private var ordersRef: CollectionReference {
+        return db.collection("orders")
+    }
+    
     private init() { }
+    
+    func setPositions(to orderId: String, positions: [Position], completion: @escaping (Result<[Position], Error>) -> ()) {
+        
+        let positionsRef = ordersRef.document(orderId).collection("positions")
+        
+        for position in positions {
+            positionsRef.document(position.id).setData(position.representation)
+        }
+        completion(.success(positions))
+    }
+    
+    func setOrders(order: Order, completion: @escaping (Result<Order, Error>) -> ()) {
+        
+        usersRef.document(order.id).setData(order.representation) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                
+                self.setPositions(to: order.id, positions: order.positions) { result  in
+                    switch result {
+                    case .success(let positions):
+                        print(positions.count)
+                        completion(.success(order))
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
+        }
+    }
     
     func setProfile(user: PizzaUser, completion: @escaping (Result<PizzaUser, Error>) -> ()) {
         
@@ -27,7 +61,6 @@ class DatabaseService {
             } else {
                 completion(.success(user))
             }
-            
         }
     }
     
@@ -47,6 +80,4 @@ class DatabaseService {
             completion(.success(user))
         }
     }
-    
-    
 }
