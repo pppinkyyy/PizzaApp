@@ -35,11 +35,10 @@ class DatabaseService {
     
     func setOrders(order: Order, completion: @escaping (Result<Order, Error>) -> ()) {
         
-        usersRef.document(order.id).setData(order.representation) { error in
+        ordersRef.document(order.id).setData(order.representation) { error in
             if let error = error {
                 completion(.failure(error))
             } else {
-                
                 self.setPositions(to: order.id, positions: order.positions) { result  in
                     switch result {
                     case .success(let positions):
@@ -49,6 +48,28 @@ class DatabaseService {
                         print(error.localizedDescription)
                     }
                 }
+            }
+        }
+    }
+    
+    func getOrders(userId: String?, completion: @escaping (Result<[Order], Error>) -> ()) {
+        self.ordersRef.getDocuments { qSnap, error in
+            if let qSnap = qSnap {
+                var orders = [Order]()
+                for doc in qSnap.documents {
+                    if let userId = userId {
+                        if let order = Order(doc: doc), order.userId == userId {
+                            orders.append(order)
+                        }
+                    } else { // ветка АДМИНА
+                        if let order = Order(doc: doc) {
+                            orders.append(order)
+                        }
+                    }
+                }
+                completion(.success(orders))
+            } else if let error = error {
+                completion(.failure(error))
             }
         }
     }

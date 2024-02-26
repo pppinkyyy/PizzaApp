@@ -63,7 +63,14 @@ struct ProfileView: View {
             .padding(.horizontal)
             
             List {
-                Text("Замовлення")
+                if viewModel.orders.count == 0 {
+                    Text("Тут з'являться ваші замовлення")
+                } else {
+                    ForEach(viewModel.orders, id:\.id) { order in
+                        OrderCell(order: order)
+                    }
+                }
+                Text("Тут з'являться ваші замовлення")
             }
             .listStyle(.plain)
             
@@ -97,6 +104,7 @@ struct ProfileView: View {
             }
             .onAppear{
                 self.viewModel.getProfile()
+                self.viewModel.getOrders()
             }
     }
 }
