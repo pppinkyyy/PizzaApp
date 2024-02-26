@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OrderCell: View {
     
-    @State var order = Order(userId: "", date: Date(), status: "New")
+    var order: Order
     
     var body: some View {
         
@@ -26,6 +26,6 @@ struct OrderCell: View {
     }
 }
 
-#Preview {
-    OrderCell()
-}
+//#Preview {
+//    OrderCell(order: <#Order#>)
+//}

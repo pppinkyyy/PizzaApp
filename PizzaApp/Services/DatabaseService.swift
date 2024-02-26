@@ -33,6 +33,26 @@ class DatabaseService {
         completion(.success(positions))
     }
     
+    func getPositions(by orderId: String, completion: @escaping (Result<[Position], Error>) -> ()) {
+        
+        let positionRef = ordersRef.document(orderId).collection("positions")
+        
+        positionRef.getDocuments { qSnap, error in
+            if let qSnap = qSnap {
+                var positions = [Position]()
+                
+                for doc in qSnap.documents {
+                    if let position = Position(doc: doc) {
+                        positions.append(position)
+                    }
+                }
+                completion(.success(positions))
+            } else if let error = error {
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func setOrders(order: Order, completion: @escaping (Result<Order, Error>) -> ()) {
         
         ordersRef.document(order.id).setData(order.representation) { error in
