@@ -70,7 +70,7 @@ struct ProfileView: View {
                         OrderCell(order: order)
                     }
                 }
-                Text("Тут з'являться ваші замовлення")
+//                Text("Тут з'являться ваші замовлення")
             }
             .listStyle(.plain)
             

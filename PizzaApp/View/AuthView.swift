@@ -21,7 +21,7 @@ struct AuthView: View {
     var body: some View {
         
         VStack (spacing: 50) {
-           
+            
             Text(isAuth ? "Авторизація" : "Реєстрація")
                 .padding(isAuth ? 16 : 20)
                 .padding(.horizontal, 30)
@@ -92,14 +92,12 @@ struct AuthView: View {
                                 self.password = ""
                                 self.confirmPassword = ""
                                 self.isAuth.toggle()
-                            
+                                
                             case.failure(let error):
                                 alertMessage = "Помилка реєстрації \(error.localizedDescription)"
                                 self.isShowAlert.toggle()
                             }
                         }
-                        
-                      
                     }
                 } label: {
                     Text(isAuth ? "Увійти" : "Зареєструватися")
@@ -112,7 +110,6 @@ struct AuthView: View {
                         .font(.title3.bold())
                         .foregroundColor(.black)
                 }
-                
                 Button {
                     isAuth.toggle()
                 } label: {
@@ -126,7 +123,6 @@ struct AuthView: View {
                         .font(.title3.bold())
                         .foregroundColor(.orange)
                 }
-
             }
             .padding()
             .background(Color("blackAlpha"))
@@ -138,17 +134,19 @@ struct AuthView: View {
                 Button("Oк") { }
             })
             
-             
         } .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Image("pizzaBG") .blur(radius: isAuth ? 0 : 5))
             .animation(.easeInOut(duration: 0.6), value: isAuth)
             .fullScreenCover(isPresented: $isTabViewShow, content: {
                 
-                let mainTabBarViewModel = MainTabBarViewModel(user: AuthService.shared.currentUser!)
-                
-                MainTabBar(viewModel: mainTabBarViewModel)
+                if AuthService.shared.currentUser?.uid == "VNH5mNWTjgQlHq4t4iFtJ5M66nC3" {
+                    AdminOrdersView()
+                } else {
+                    let mainTabBarViewModel = MainTabBarViewModel(user: AuthService.shared.currentUser!)
+                    
+                    MainTabBar(viewModel: mainTabBarViewModel)
+                }
             })
-        
     }
 }
 

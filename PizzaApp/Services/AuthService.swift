@@ -59,6 +59,10 @@ class AuthService {
     
     }
     
+    func signOut() {
+        try! auth.signOut()
+    }
+    
 }
 
 
