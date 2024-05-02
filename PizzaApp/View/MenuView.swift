@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-let layout = [GridItem(.adaptive(minimum: screen.width / 2.4))]
-
 struct MenuView: View {
+    
+    let layout = [GridItem(.adaptive(minimum: screen.width / 2.4))]
+    @StateObject var viewModel = MenuViewModel()
+    
     var body: some View {
         
         ScrollView(.vertical, showsIndicators: false) {
@@ -17,7 +19,7 @@ struct MenuView: View {
             Section("Популярні піцци") {
                 ScrollView(.horizontal, showsIndicators: false){
                     LazyHGrid(rows: layout, content: {
-                        ForEach(MenuViewModel.share.popularProducts, id: \.id) { item in
+                        ForEach(viewModel.popularProducts, id: \.id) { item in
                             
                             NavigationLink {
                                 let viewModel = ProductDetailsViewModel(product: item)
@@ -34,7 +36,7 @@ struct MenuView: View {
             Section("Всі піцци") {
                 ScrollView(.vertical, showsIndicators: false){
                     LazyVGrid(columns: layout, content: {
-                        ForEach(MenuViewModel.share.pizzas, id: \.id) { item in
+                        ForEach(viewModel.pizzas, id: \.id) { item in
                             
                             NavigationLink {
                                 let viewModel = ProductDetailsViewModel(product: item)
@@ -52,6 +54,9 @@ struct MenuView: View {
         .navigationTitle("Меню")
         .background(.black)
         .foregroundStyle(.white)
+        .onAppear {
+            viewModel.getProducts()
+        }
         
 //        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
 //            .background(.black)

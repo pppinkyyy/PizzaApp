@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailsView: View {
     
-    var viewModel: ProductDetailsViewModel
+    @StateObject var viewModel: ProductDetailsViewModel
     @State var size = "Маленька"
     @State var count = 1
     
@@ -19,7 +19,7 @@ struct ProductDetailsView: View {
         
         VStack {
             VStack(alignment: .leading) {
-                Image("pizzaMargarita")
+                Image(uiImage: self.viewModel.image)
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: 400)
                 
@@ -81,17 +81,20 @@ struct ProductDetailsView: View {
             .cornerRadius(14)
             .padding()
             .foregroundColor(.black)
+
             
             Spacer()
         }
         .background(Color.black)
+        .onAppear {
+            self.viewModel.getImage()
+        }
     }
 }
 
 #Preview {
     ProductDetailsView(viewModel: ProductDetailsViewModel(product: Product(id: "1",
                                                                            title: "Margarita Premio",
-                                                                           imageURL: "not found",
                                                                            price: 260,
                                                                            description: "Tипова неаполітанська піца, виготовлена з помідорами Сан-Марцано, сиром моцарелла, свіжим базиліком, сіллю та оливковою олією.")))
 }

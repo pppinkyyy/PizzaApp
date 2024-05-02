@@ -29,8 +29,8 @@ struct PositionCell: View {
 }
 
 #Preview {
-    PositionCell(position: Position(id: UUID().uuidString, product: Product(id: UUID().uuidString, title: "Неаполітанська піца",
-                                                                            imageURL: "pizzaNeopolitano",
+    PositionCell(position: Position(id: UUID().uuidString, product: Product(id: UUID().uuidString,
+                                                                            title: "Неаполітанська піца",
                                                                             price: 280,
                                                                             description: "Неаполітанська піца — з помідорами, моцарелою, пармезаном, анчоусами, оливковою олією, орегано та базиліком."),
                                     count: 3))

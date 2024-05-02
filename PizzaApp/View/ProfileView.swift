@@ -12,15 +12,19 @@ struct ProfileView: View {
     @State var isAvaAlertPresented = false
     @State var isQuitAlertPresented = false
     @State var isAuthViewPresented = false
-
+    @State private var showImagePicker = false
+    @State private var showCamera = false
+    @State private var image = UIImage(named: "user")!
+    
     @ObservedObject var viewModel: ProfileViewModel
     
     var body: some View {
         
         VStack(alignment:.center, spacing: 20 ) {
             HStack(spacing: 12) {
-                Image("user")
+                Image(uiImage: image)
                     .resizable()
+                    .clipShape(.circle)
                     .frame(width: 60, height: 60)
                     .padding(8)
                     .onTapGesture {
@@ -29,10 +33,10 @@ struct ProfileView: View {
                     .confirmationDialog("Додати фото", isPresented: $isAvaAlertPresented) {
                         
                         Button("Відкрити галерею") {
-                            
+                            showImagePicker.toggle()
                         }
                         Button("Відкрити камеру") {
-                            
+                            showCamera.toggle()
                         }
                         
                         Button(role: .cancel) { } label: {
@@ -45,12 +49,12 @@ struct ProfileView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     TextField("Ваше ім`я та прізвище", text: $viewModel.profile.name)
                         .font(.custom("AvenirNext-bold", size: 18))
-                   
+                    
                     HStack {
                         Text("+380")
                         TextField("Ваш номер телефону", value: $viewModel.profile.phoneNumber, format: .number)
                     }
-
+                    
                 }
             }
             
@@ -70,7 +74,6 @@ struct ProfileView: View {
                         OrderCell(order: order)
                     }
                 }
-//                Text("Тут з'являться ваші замовлення")
             }
             .listStyle(.plain)
             
@@ -105,6 +108,12 @@ struct ProfileView: View {
             .onAppear{
                 self.viewModel.getProfile()
                 self.viewModel.getOrders()
+            }
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+            }
+            .sheet(isPresented: $showCamera) {
+                ImagePicker(sourceType: .camera, selectedImage: $image)
             }
     }
 }

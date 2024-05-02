@@ -12,6 +12,7 @@ struct AdminOrdersView: View {
     @StateObject var viewModel = AdminOrdersViewModel()
     @State var isOrderViewShow = false
     @State var isAuthViewShow = false
+    @State private var isShowAddProductView = false
     
     var body: some View {
         VStack {
@@ -24,12 +25,12 @@ struct AdminOrdersView: View {
                 
                 Spacer()
                 
-                Button("Додати замовлення") {
-                    
+                Button("Додати товар") {
+                    isShowAddProductView.toggle()
                 }
                 .foregroundStyle(.white)
                 .padding()
-                .background(.galaxy)
+//                .background(.galaxy)
                 .cornerRadius(15)
     
                 Spacer()
@@ -49,7 +50,7 @@ struct AdminOrdersView: View {
                         }
                 }
             }
-            .background(.galaxy)
+//            .background(.galaxy)
             .listStyle(.plain)
             .onAppear {
                 viewModel.getOrders()
@@ -58,9 +59,12 @@ struct AdminOrdersView: View {
                 let orderViewModel = OrderViewModel(order: viewModel.currentOrder)
                 OrderView(viewModel: orderViewModel)
         })
-        }.fullScreenCover(isPresented: $isAuthViewShow, content: {
+        }.fullScreenCover(isPresented: $isAuthViewShow) {
             AuthView()
-        })
+        }
+        .sheet(isPresented: $isShowAddProductView) {
+            AddProductView()
+        }
     }
 }
 

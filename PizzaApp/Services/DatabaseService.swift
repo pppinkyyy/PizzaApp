@@ -21,6 +21,10 @@ class DatabaseService {
         return db.collection("orders")
     }
     
+    private var productsRef: CollectionReference {
+        return db.collection("products")
+    }
+
     private init() { }
     
     func setPositions(to orderId: String, positions: [Position], completion: @escaping (Result<[Position], Error>) -> ()) {
@@ -119,6 +123,50 @@ class DatabaseService {
             let user = PizzaUser(id: id, name: userName, phoneNumber: phone, address: address)
             
             completion(.success(user))
+        }
+    }
+    
+    func setProduct(product: Product, image: Data, completion: @escaping (Result<Product, Error>) -> ()) {
+        
+        StorageService.shared.upload(id: product.id, image: image) { result in
+            switch result {
+            case .success(let sizeInfo):
+                print(sizeInfo)
+                
+                self.productsRef.document(product.id).setData(product.representation) { error in
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success(product))
+                    }
+                }
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getProducts(completion: @escaping (Result<[Product], Error>) -> ()) {
+        
+        self.productsRef.getDocuments { qSnap, error in
+            
+            guard let qSnap = qSnap else {
+                if let error = error {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            let docs = qSnap.documents
+            
+            var products = [Product]()
+            
+            for doc in docs {
+                guard let product = Product(doc: doc) else { return }
+                products.append(product)
+            }
+            completion(.success(products))
         }
     }
 }

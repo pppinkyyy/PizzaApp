@@ -42,7 +42,7 @@ struct Position: Identifiable {
         guard let id = data["id"] as? String else { return nil }
         guard let title = data["title"] as? String else { return nil }
         guard let price = data["price"] as? Int else { return nil }
-        let product: Product = Product(id: "", title: title, imageURL: "", price: price, description: "")
+        let product: Product = Product(id: "", title: title, price: price, description: "")
         guard let count = data["count"] as? Int else { return nil }
         
         self.id = id
