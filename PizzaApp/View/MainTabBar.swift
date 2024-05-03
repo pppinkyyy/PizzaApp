@@ -35,6 +35,9 @@ struct MainTabBar: View {
                         Text("Меню")
                     }
                 }
+//                .toolbar(.visible, for: .tabBar)
+//                .toolbarBackground(Color.black, for: .tabBar)
+//                .colorScheme(.dark)
             
             CartView(viewModel: CartViewModel.shared)
             .tabItem {
@@ -44,9 +47,6 @@ struct MainTabBar: View {
                 }
             }
         }.tint(.orange)
-            
-        
-       
     }
 }
 

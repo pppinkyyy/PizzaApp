@@ -31,18 +31,20 @@ struct ProfileView: View {
                         isAvaAlertPresented.toggle()
                     }
                     .confirmationDialog("Додати фото", isPresented: $isAvaAlertPresented) {
-                        
                         Button("Відкрити галерею") {
                             showImagePicker.toggle()
                         }
                         Button("Відкрити камеру") {
                             showCamera.toggle()
                         }
-                        
+                        Button(role: .destructive) { 
+                            
+                        } label: {
+                            Text("Видалити фото")
+                        }
                         Button(role: .cancel) { } label: {
                             Text("Відмінити")
                         }
-                        
                     }
                 
                 
@@ -69,12 +71,14 @@ struct ProfileView: View {
             List {
                 if viewModel.orders.count == 0 {
                     Text("Тут з'являться ваші замовлення")
+                        .listRowBackground(Color.black)
                 } else {
                     ForEach(viewModel.orders, id:\.id) { order in
                         OrderCell(order: order)
                     }
                 }
             }
+            .background(.black)
             .listStyle(.plain)
             
             

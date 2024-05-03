@@ -59,7 +59,6 @@ struct ProductDetailsView: View {
                 }
             }
             .pickerStyle(.segmented)
-            .background(.secondary)
             .font(.custom("AvenirNext-regular", size: 15))
             .padding()
             

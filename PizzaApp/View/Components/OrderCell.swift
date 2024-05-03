@@ -14,15 +14,16 @@ struct OrderCell: View {
     var body: some View {
         
         HStack {
-            Text("\(order.date)")
-            Text("\(order.cost)")
+            Text("\(order.date.formatted(date: .abbreviated, time: .shortened))")
+            Text("\(order.cost)₴")
                 .bold()
                 .frame(width: 90)
             Text("\(order.status)")
                 .frame(width: 100)
                 .foregroundStyle(.green)
         }
-        
+        .background(.black)
+        .listRowBackground(Color.black)
     }
 }
 

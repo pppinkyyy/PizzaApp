@@ -44,8 +44,10 @@ struct CartView: View {
             
             
             HStack(spacing: 24) {
-                Button("Скасувати") {
-                    
+                Button(role: .cancel) {
+                    viewModel.positions.removeAll()
+                } label: {
+                    Text("Скасувати")
                 }
                 .padding()
                 .foregroundColor(.white)

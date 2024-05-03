@@ -32,6 +32,7 @@ struct MenuView: View {
                     })
                 }
             }
+            .bold()
             
             Section("Всі піцци") {
                 ScrollView(.vertical, showsIndicators: false){
@@ -50,21 +51,38 @@ struct MenuView: View {
                     })
                 }
             }
-        } 
+            .bold()
+        }
         .navigationTitle("Меню")
+        .preferredColorScheme(.dark)
+        .navigationBarTitleTextColor(.orange)
         .background(.black)
-        .foregroundStyle(.white)
+        .foregroundStyle(.orange)
         .onAppear {
             viewModel.getProducts()
         }
-        
-//        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
-//            .background(.black)
-//        .scrollContentBackground(.hidden)
-        
     }
 }
 
 #Preview {
     MenuView()
 }
+
+
+//        TODO: сделать фон черным а буквы белым (или адаптивное все) может еще поработать с ячейками
+//            .background(.black)
+//
+
+
+//Расширение для модификатора navigationTitle:
+
+extension View {
+    func navigationBarTitleTextColor(_ color: Color) -> some View {
+        let uiColor = UIColor(color)
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: uiColor ]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: uiColor ]
+        return self
+    }
+}
+
+
