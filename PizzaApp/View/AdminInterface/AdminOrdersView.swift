@@ -65,6 +65,7 @@ struct AdminOrdersView: View {
         .sheet(isPresented: $isShowAddProductView) {
             AddProductView()
         }
+        .preferredColorScheme(.dark)
     }
 }
 

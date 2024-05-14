@@ -8,9 +8,9 @@
 import Foundation
 
 enum OrderStatus: String, CaseIterable {
-    case new = "Новий"
+    case new = "Нове"
     case preparing = "Готується"
-    case delivery = "Доставляється"
-    case completed = "Готово"
-    case cancelled = "Скасований"
+    case delivery = "Доставка"
+    case completed = "Доставлено"
+    case cancelled = "Скасовано"
 }

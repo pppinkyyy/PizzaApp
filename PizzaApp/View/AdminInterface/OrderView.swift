@@ -67,7 +67,6 @@ struct OrderView: View {
         .onAppear {
             viewModel.getUserData()
         }
-        .background(.galaxy)
         .scrollContentBackground(.hidden)
     }
 }

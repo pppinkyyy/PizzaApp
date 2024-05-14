@@ -10,6 +10,7 @@ import SwiftUI
 struct CartView: View {
     
     @StateObject var viewModel: CartViewModel
+    @State private var showingAlert = false
     
     var body: some View {
         
@@ -64,12 +65,17 @@ struct CartView: View {
                         case .failure(let error):
                             print(error.localizedDescription)
                         }
+                        showingAlert.toggle()
+                        viewModel.positions.removeAll()
                     }
                 }   .padding()
                     .frame(maxWidth: .infinity)
                     .background(.orange)
                     .foregroundColor(.black)
                     .cornerRadius(18)
+                    .alert("Ваше замовлення прийнято, очікуйте на наш дзвінок", isPresented: $showingAlert) {
+                        Button("Добре") { }
+                    }
             }
             .padding()
             
