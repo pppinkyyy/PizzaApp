@@ -38,7 +38,7 @@ struct ProfileView: View {
                             showCamera.toggle()
                         }
                         Button(role: .destructive) { 
-                            
+                            image = UIImage(named: "user")!
                         } label: {
                             Text("Видалити фото")
                         }
