@@ -11,8 +11,8 @@ The application consists of:
 The authorization screen has two states:
 * Authorization
 * Registration
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot.PNG"></p>
-
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6370.PNG"></p>
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6371.PNG"></p>
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
 ***
