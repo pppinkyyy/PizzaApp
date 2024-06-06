@@ -12,7 +12,7 @@ The authorization screen has two states:
 * Authorization
 * Registration
 
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6370.PNG"></p>
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot1.PNG"></p>
 
 <!--<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6371.PNG"></p>-->
 The state changes when the button is pressed.
@@ -31,7 +31,7 @@ In the Profile, the user can:
 * monitor the history of all user orders, and the status of orders
 * log out of user profile
 
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot.PNG"></p>
+<p align="left"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot.PNG"></p>
 
 ***
 #### Menu
