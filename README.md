@@ -11,7 +11,7 @@ The application consists of:
 The authorization screen has two states:
 * Authorization
 * Registration
-<!--<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6370.PNG"></p>-->
+<p align="left"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6370.PNG"></p>
 <!--<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/IMG_6371.PNG"></p>-->
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
@@ -28,6 +28,7 @@ In the Profile, the user can:
 * add/change user avatar, username, phone number, delivery address
 * monitor the history of all user orders, and the status of orders
 * log out of user profile
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot.PNG"></p>
 ***
 #### Menu
 Next is the Menu screen, which consists of two sections:
