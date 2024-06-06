@@ -6,7 +6,7 @@ The application consists of:
 * Authorization screen
 * User Interface
 * Admin interface
-***
+
 ## Authorization screen
 The authorization screen has two states:
 * Authorization
