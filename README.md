@@ -7,7 +7,7 @@ The application consists of:
 * User Interface
 * Admin interface
 ***
-### Authorization screen
+## Authorization screen
 The authorization screen has two states:
 * Authorization
 * Registration
@@ -17,14 +17,14 @@ The authorization screen has two states:
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
 ***
-### User Interface
+## User Interface
 After successful registration, the user is taken to the user interface.
 This interface consists of 3 views:
 * User profile
 * Menu
 * Cart
 ***
-#### Profile
+### Profile
 In the Profile, the user can:
 * add/change user avatar, username, phone number, delivery address
 * monitor the history of all user orders, and the status of orders
@@ -33,7 +33,7 @@ In the Profile, the user can:
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/main/docs/screenShot.PNG"></p>
 
 ***
-#### Menu
+### Menu
 Next is the Menu screen, which consists of two sections:
 * Section "Popular pizzas" - horizontal scroll
 * Section "All pizzas" - vertical scroll
@@ -41,14 +41,14 @@ Next is the Menu screen, which consists of two sections:
 Clicking on any pizza will open a view with details about this pizza.
 In this view, the user can change the count and size of the pizza, and add pizza to the cart.
 ***
-#### Cart
+### Cart
 In the shopping cart the user can:
 * Monitor the list of cart items
 * Remove unnecessary item from cart
 * Cancel order - remove all items from cart
 * Order delivery
 ***
-### Admin interface
+## Admin interface
 Now let's move on to the Admin interface.
 The admin screen displays a list of all orders.
 After clicking on any order, a view with all the information about this order opens.
