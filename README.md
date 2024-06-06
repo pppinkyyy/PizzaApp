@@ -16,7 +16,7 @@ The authorization screen has two states:
 
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
-***
+ 
 ## User Interface
 After successful registration, the user is taken to the user interface.
 This interface consists of 3 views:
@@ -47,7 +47,7 @@ In the shopping cart the user can:
 * Remove unnecessary item from cart
 * Cancel order - remove all items from cart
 * Order delivery
-***
+ 
 ## Admin interface
 Now let's move on to the Admin interface.
 The admin screen displays a list of all orders.
