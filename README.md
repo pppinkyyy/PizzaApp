@@ -12,10 +12,9 @@ The authorization screen has two states:
 * Authorization
 * Registration
 
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/screenShot2.PNG"></p>
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/authView.gif"></p>
 
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/gifv2.gif"></p>
-
+<!--<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/gifv2.gif"></p>-->
 
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
