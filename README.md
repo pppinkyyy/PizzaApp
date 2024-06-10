@@ -1,4 +1,5 @@
 #  PizzaApp
+<a id="anchor"></a>
 
 PizzaApp is an application developed on SwiftUI for ordering pizza (BZ Fire Base)
 
@@ -71,8 +72,9 @@ The admin has the ability to change the order status that the user is tracking.
 
 There are also 3 buttons on the top of the admin screen:
 * Button to exit the admin interface to the login screen
+* Button to updates data
 * Button to add a product, clicking on it opens a view in which the admin can add a new item (photo, name, description, etc.)
 
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/IMG_6381.PNG"></p>
 
-* Button to updates data.
+[up](#anchor)
