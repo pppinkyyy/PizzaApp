@@ -1,7 +1,7 @@
 <a id="anchor"></a>
 #  PizzaApp
 
-PizzaApp is an application developed on SwiftUI for ordering pizza (BZ Fire Base)
+PizzaApp is an application for ordering pizza.
 
 The application consists of:
 * Authorization screen
