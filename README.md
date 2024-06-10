@@ -1,5 +1,5 @@
-#  PizzaApp
 <a id="anchor"></a>
+#  PizzaApp
 
 PizzaApp is an application developed on SwiftUI for ordering pizza (BZ Fire Base)
 
@@ -14,7 +14,6 @@ The authorization screen has two states:
 * Registration
 
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/authView.gif"></p>
-
 
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
