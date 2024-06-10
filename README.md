@@ -35,9 +35,6 @@ In the Profile, the user can:
 
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/screenShot.PNG"></p>
 
-<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/GIFF.gif"></p>
-
-
 ***
 ### Menu
 Next is the Menu screen, which consists of two sections:
@@ -63,10 +60,19 @@ In the shopping cart the user can:
 ## Admin interface
 Now let's move on to the Admin interface.
 The admin screen displays a list of all orders.
+
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/IMG_6379.PNG"></p>
+
 After clicking on any order, a view with all the information about this order opens.
+
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/IMG_6380.PNG"></p>
+
 The admin has the ability to change the order status that the user is tracking.
 
 There are also 3 buttons on the top of the admin screen:
 * Button to exit the admin interface to the login screen
 * Button to add a product, clicking on it opens a view in which the admin can add a new item (photo, name, description, etc.)
+
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/IMG_6381.PNG"></p>
+
 * Button to updates data.
