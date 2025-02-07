@@ -41,6 +41,8 @@ Next is the Menu screen, which consists of two sections:
 * Section "Popular pizzas" - horizontal scroll
 * Section "All pizzas" - vertical scroll
 
+<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/menus.gif"></p>
+
 Clicking on any pizza will open a view with details about this pizza.
 
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/IMG_6375.PNG"></p>
