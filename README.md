@@ -1,6 +1,6 @@
 #  PizzaApp
 
-PizzaApp is an application developed on SwiftUI for ordering pizza (BZ Fire Base)
+PizzaApp is an application developed on SwiftUI for ordering pizza.
 
 The application consists of:
 * Authorization screen
@@ -8,14 +8,13 @@ The application consists of:
 * Admin interface
 
 ## Authorization screen
+User registration and authentication is implemented using Firebase Authentication.
+
 The authorization screen has two states:
 * Authorization
 * Registration
 
 <p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/authView.gif"></p>
-
-
-<!--<p align="center"><img width="250" src="https://github.com/pppinkyyy/PizzaApp/raw/readme/docs/gifv2.gif"></p>-->
 
 The state changes when the button is pressed.
 This view has placeholders for entering your email and password, and a login button.
@@ -28,6 +27,8 @@ This interface consists of 3 views:
 * Cart
 ***
 ### Profile
+Storing data about the user and his order in Firebase Database.
+
 In the Profile, the user can:
 * add/change user avatar, username, phone number, delivery address
 * monitor the history of all user orders, and the status of orders
@@ -37,6 +38,8 @@ In the Profile, the user can:
 
 ***
 ### Menu
+All images are stored in Firebase Storage.
+
 Next is the Menu screen, which consists of two sections:
 * Section "Popular pizzas" - horizontal scroll
 * Section "All pizzas" - vertical scroll
